@@ -30,6 +30,7 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         let ParseModel = parseModel()
         ParseModel.delegate = self
         ParseModel.downloadItems()
+	itemsDownloaded()
     }
     
     func itemsDownloaded(items: NSArray) {
