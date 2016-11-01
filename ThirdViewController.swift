@@ -14,7 +14,11 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var myTable: UITableView!
     var feedItems: NSArray = NSArray()
     var selectedLocation : locationModel = locationModel()
-    
+
+    //Also you want your cell identifier globally accessible for 
+    //scenarios that may arise later
+    let cellIdentifier: String = "BasicCell"    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -47,8 +51,6 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Retrieve cell
-        let cellIdentifier: String = "BasicCell"
         let myCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
         // Get the location to be shown
         let item: locationModel = feedItems[indexPath.row] as! locationModel
